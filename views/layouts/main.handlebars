@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<script language="javascript">   
+
+    function k(i) {
+	var v = i.value.replace(/\D/g,'');
+	v = (v/100).toFixed(2) + '';
+	v = v.replace(".", ",");
+	v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
+	v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
+	i.value = v;
+}
+  
+
+</script>  
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css"> 
+    <title>Lista de Pagamentos</title>
+</head>
+<body>
+    <div class="container">
+  
+   {{>_msg}} 
+   {{{body}}}
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+   <script src="/js/bootstrap.min.js"></script>
+
+   </div>
+
+</body>
+</html>

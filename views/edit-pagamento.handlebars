@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Editar pagamento</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+            <a class="btn btn-sm btn-outline-info" href="/pagamento" role="button">Listar</a>
+            <a class="btn btn-sm btn-outline-primary" href="/vis-pagamento/{{id}}" role="button">Visualizar</a>
+            <a class="btn btn-sm btn-outline-danger" href="/del-pagamento/{{id}}" role="button">Apagar</a>
+          </div>
+    </div>
+</div>
+
+
+<form action="/update-pagamento/{{id}}" method="POST">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Nome</label>
+        <div class="col-sm-10">
+            <input type="text" onclick="mouseClickNome()" name="nome" class="form-control" id="nome" value="{{nome}}" placeholder="Nome completo">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Valor</label>
+        <div class="col-sm-10">
+            <input type="text" onclick="mouseClickValor()" name="valor" class="form-control" id="nome" value="{{valor}}" placeholder="Digite o valor" onkeyup="k(this);">
+        </div>
+    </div>
+
+        <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Data de Vencimento</label>
+        <div class="col-sm-10">
+            <input type="text" onclick="mouseClickData()"  name="vencimento" class="form-control" id="date" value="{{vencimento}}"  placeholder="Altere a data de Vencimento">
+            <input type="date" hidden = true onclick="mouseClick()"  name="vencimento" class="form-control" id="datee" value="{{vencimento}}"  placeholder="Altere a data de Vencimento">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" onclick="mouseClickBotao()" class="btn btn-sm btn-outline-warning">Salvar</button>
+        </div>
+    </div>
+
+<script>
+function mouseClickData() {
+  document.getElementById("date").hidden = true;
+  document.getElementById("date").value = "";
+  document.getElementById("datee").hidden = false;
+  document.getElementById("datee").focus();
+}
+
+function mouseClickNome() {
+  document.getElementById("date").hidden = false;
+  document.getElementById("date").value = "{{vencimento}}";
+  document.getElementById("datee").hidden = true;
+}
+
+function mouseClickValor() {
+  document.getElementById("date").hidden = false;
+  document.getElementById("date").value = "{{vencimento}}";
+  document.getElementById("datee").hidden = true;
+}
+
+function mouseClickBotao() {
+    if (document.getElementById("datee").value == "{{dd/mm/aaaa}}") {
+       document.getElementById("date").hidden = false;
+  document.getElementById("date").value = "{{vencimento}}";
+  document.getElementById("datee").hidden = true;   
+    }else{
+    document.getElementById("date").hidden = true;
+  document.getElementById("date").value = "";
+  document.getElementById("datee").hidden = false;
+    }
+}
+</script>
+</form>

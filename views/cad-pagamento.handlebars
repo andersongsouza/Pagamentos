@@ -1,0 +1,41 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Cadastrar pagamento</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a href="/pagamento">
+            <button type="button" class="btn btn-sm btn-outline-info">
+                Listar
+            </button>
+        </a>
+    </div>
+</div>
+
+
+<form action="/add-pagamento" method="POST">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Nome</label>
+        <div class="col-sm-8">
+            <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome do Pagamento">
+        </div>
+    </div>
+
+    <div class="form-group row main_content_wrap">
+        <label class="col-sm-2 col-form-label">Valor</label>
+        <div class="col-sm-8">
+            <input type="text" name="valor" maxlength="12" class="form-control" id="valor" placeholder="Digite o valor" onkeyup="k(this);" >
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Data de Vencimento</label>
+        <div class="col-sm-8">
+            <input type="date" name="vencimento" class="form-control" id="" placeholder="Digite a Data de Vencimento">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-sm btn-outline-success">Cadastrar</button>
+        </div>
+    </div>
+
+</form>
